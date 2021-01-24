@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tsuica.mapper.CreateAccountMapper">
+
+  <!-- 登録ユーザー重複チェック -->
+  <select id="countAccount" resultType="string">
+    select
+      min(cast(act.del_flg as SIGNED)) del_flg
+    from
+      account act
+    where
+      #{userName}
+  </select>
+  <!-- 新規ユーザー登録 -->
+  <insert id="insertAccount"
+    parameterType="com.example.tsuica.entity.AccountEntity">
+  insert into
+    account(
+    user_name
+   ,password
+  )
+  values
+  (
+    #(userName,jdbcType=VARCHAR)
+   ,#(password,jdbcType=VARCHAR)
+  )
+  </insert>
+</mapper>

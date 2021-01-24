@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.title {
+  color: #4682b4;
+  font-family: "Meiryo UI";
+  font-size: 60px;
+  font-weight: 900
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tsuica.mapper.AuthMapper">
+
+  <!-- ログインユーザー取得 -->
+  <select id="selectLoginUser"
+    resultType="com.example.tsuica.entity.AccountEntity">
+    select
+      act.user_name
+      ,act.password
+      ,act.role
+    from
+      account act
+    where
+      act.user_name = #{userName}
+      and del_flg = 0
+  </select>
+</mapper>
