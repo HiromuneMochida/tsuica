@@ -5,13 +5,14 @@
 <mapper namespace="com.example.tsuica.mapper.CreateAccountMapper">
 
   <!-- 登録ユーザー重複チェック -->
-  <select id="countAccount" resultType="string">
+  <select id="countAccount"
+  parameterType="com.example.tsuica.entity.AccountEntity" resultType="long">
     select
-      min(cast(act.del_flg as SIGNED)) del_flg
+      count(*)
     from
       account act
     where
-      #{userName}
+      act.user_name = #{userName}
   </select>
   <!-- 新規ユーザー登録 -->
   <insert id="insertAccount"
@@ -20,11 +21,12 @@
     account(
     user_name
    ,password
+   ,role
   )
-  values
-  (
-    #(userName,jdbcType=VARCHAR)
-   ,#(password,jdbcType=VARCHAR)
+  values(
+    #{userName,jdbcType=VARCHAR}
+   ,#{password,jdbcType=VARCHAR}
+   ,#{role,jdbcType=VARCHAR}
   )
   </insert>
 </mapper>

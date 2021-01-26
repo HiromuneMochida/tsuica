@@ -12,13 +12,13 @@ public interface CreateAccountMapper {
    * @param アカウントエンティティ
    * @return AccountEntity
    */
-  public AccountEntity insertAccount(AccountEntity entity);
+  public void insertAccount(AccountEntity entity);
 
   /**
    * アカウント重複チェック
    * @param アカウントエンティティ
    * @return AccountEntity
    */
-  public String countAccount(AccountEntity entity);
+  public long countAccount(AccountEntity entity);
   //TODO 要修正
 }

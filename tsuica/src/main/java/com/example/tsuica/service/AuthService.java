@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.tsuica.entity.AccountEntity;
 import com.example.tsuica.mapper.AuthMapper;
+import com.example.tsuica.mapper.CreateAccountMapper;
 
 /**
 *
@@ -26,6 +27,8 @@ import com.example.tsuica.mapper.AuthMapper;
 public class AuthService implements UserDetailsService {
   @Autowired
   private AuthMapper loginMapper;
+  @Autowired
+  private CreateAccountMapper creteAccountMapper;
 
   /**
   * @param userName ユーザー名
@@ -48,4 +51,24 @@ public class AuthService implements UserDetailsService {
 
   }
 
+  /**
+   * アカウント登録
+   * @param entity
+   * @return アカウントエンティティ
+   */
+  public void insertAccount(AccountEntity entity) {
+    //TODO 処理
+    creteAccountMapper.insertAccount(entity);
+  }
+
+  /**
+   * アカウント削除フラグチェック
+   * @param entity
+   * @return 削除フラグ "0"
+   */
+  public long countAccount(AccountEntity entity) {
+    //TODO 処理
+
+    return creteAccountMapper.countAccount(entity);
+  }
 }

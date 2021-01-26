@@ -2,6 +2,7 @@ package com.example.tsuica.helper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.example.tsuica.entity.AccountEntity;
 import com.example.tsuica.form.AccountForm;
@@ -11,6 +12,7 @@ import com.example.tsuica.form.AccountForm;
  * @author hiromune mochida
  * @version 2021/01/23
  */
+@Service
 public class CreateAccountHelper {
   @Autowired
   private BCryptPasswordEncoder passwordEncoder;
@@ -21,7 +23,7 @@ public class CreateAccountHelper {
    * @param form
    * @return AccountEntity
    */
-  public AccountEntity formToEntity(AccountEntity entity, AccountForm form) {
+  public AccountEntity formToEntity(AccountForm form, AccountEntity entity) {
     entity.setUserName(form.getUserName());
     entity.setPassword(passwordEncoder.encode(form.getPassword()));
     entity.setRole("ROLE_USER");

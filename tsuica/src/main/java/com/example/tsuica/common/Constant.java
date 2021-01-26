@@ -25,4 +25,9 @@ public class Constant {
   /** 登録しました。 */
   public static final String I_002 = "I_002";
 
+  /** このアカウントは既に登録されています。 */
+  public static final String E_001 = "E_001";
+
+
+
 }

@@ -6,3 +6,9 @@
   font-size: 60px;
   font-weight: 900
 }
+
+.errMsg {
+  color: #FF0000;
+  font-family: "Meiryo UI";
+  font-size: 15px;
+}

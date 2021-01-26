@@ -10,7 +10,7 @@ import com.example.tsuica.common.Constant;
 import com.example.tsuica.common.MessageManager;
 
 /**
- * ユーザー認証用コントローラークラス
+ * ユーザー認証コントローラークラス
  * @author hiromune mochida
  * @version 2021/01/16
  */
@@ -22,36 +22,44 @@ public class AuthController {
 
   /**
    *  ログイン画面表示
-   * @return String
+   * @return login.html
    */
   @GetMapping("/login")
-  public String getLogin() {
+  public String init() {
+
     return "auth/login";
   }
 
   /**
    * 入力情報送信
-   * @return String
+   * @return index.html
    */
   @PostMapping("/login")
-  public String postLogin() {
+  public String login() {
 
     return "redirect:auth/index";
   }
 
   /**
    * ログアウト
-   * @return String
+   * @return login.html
    */
   @PostMapping("/logout")
   public String logout() {
+
     return "redirect:auth/login";
   }
 
+  /**
+   *
+   * @param model
+   * @return index.html
+   */
   //TODO 適切なフォルダに移動予定
   @GetMapping("/index")
   public String index(Model model) {
     model.addAttribute("iMsg", msg.getMessage(Constant.I_001));
+
     return "auth/index";
   }
 }

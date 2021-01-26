@@ -13,7 +13,7 @@
       <div class="text-center col-2 offset-5 mt-5">
         <form method="post" th:action="@{/login}">
           <div class="title">Tsuica</div>
-          <div class="errorMsg" th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></div>
+          <div class="errMsg" th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></div>
           <hr>
           <div class="form-group mb-2">
             <input class="form-control" type="text" name="username" placeholder="ユーザーID" />
