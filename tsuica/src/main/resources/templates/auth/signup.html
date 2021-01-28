@@ -14,6 +14,7 @@
       <div class="text-center col-2 offset-5 mt-5">
         <form th:action="@{/signup}" th:method="post" th:object="${AccountForm}">
           <div class="title">Tsuica</div>
+          <div class="errMsg" th:text="${errMsg}"></div>
           <div class="msg">tsuicaを始める</div>
           <hr>
           <div class="form-group mb-2">

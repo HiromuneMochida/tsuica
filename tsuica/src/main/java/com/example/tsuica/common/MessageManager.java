@@ -30,22 +30,10 @@ public class MessageManager {
   /**
    * 出力メッセージ数 組み合わせ
    * @param target 出力メッセージ
-   * @param msgFirst {0}
+   * @param {0}{1}...
    * @return String
    */
-  public String getMessage(String target, String msgFirst) {
-    return message.getMessage(target, new String[] { msgFirst }, Locale.JAPAN);
+  public String getMessage(String target, String... args) {
+    return message.getMessage(target, args, Locale.JAPAN);
   }
-
-  /**
-   * 出力メッセージ数 組み合わせ
-   * @param target 出力メッセージ
-   * @param msgFirst {0}
-   * @param msgSecond {1}
-   * @return String
-   */
-  public String getMessage(String target, String msgFirst, String msgSecond) {
-    return message.getMessage(target, new String[] { msgFirst, msgSecond }, Locale.JAPAN);
-  }
-
 }
