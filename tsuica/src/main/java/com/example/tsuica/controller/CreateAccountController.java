@@ -1,5 +1,6 @@
 package com.example.tsuica.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,10 +64,10 @@ public class CreateAccountController {
     if (delFlg != 0) {
       //アカウントが存在している場合
       model.addAttribute("errMsg", msg.getMessage(Constant.E_001));
-    } else if (!form.getUserName().isEmpty() && !form.getPassword().isEmpty()) {
+      return "redirect:/signup";
+    } else if (!StringUtils.isBlank(form.getUserName()) && !StringUtils.isBlank(form.getPassword())) {
       service.insertAccount(entity);
     }
-
     return "redirect:/login";
   }
 }
