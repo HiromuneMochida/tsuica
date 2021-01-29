@@ -60,8 +60,8 @@ public class CreateAccountController {
     //フォームからエンティティへ変換
     entity = helper.formToEntity(form, entity);
     //存在チェック
-    long countCheck = service.countAccount(entity);
-    if (countCheck != 0) {
+    long checkCount = service.countAccount(entity);
+    if (checkCount != 0) {
       //アカウントが存在している場合
       model.addAttribute("errMsg", msg.getMessage(Constant.E_001));
       return "redirect:/signup";
