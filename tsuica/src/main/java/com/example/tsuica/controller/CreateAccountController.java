@@ -6,10 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.tsuica.common.Constant;
 import com.example.tsuica.common.MessageManager;
@@ -24,7 +23,6 @@ import com.example.tsuica.service.AuthService;
  *
  */
 @Controller
-@RequestMapping("/signup")
 public class CreateAccountController {
 
   @Autowired
@@ -40,7 +38,7 @@ public class CreateAccountController {
    * @param form
    * @return signup.html
    */
-  @GetMapping
+  @RequestMapping(value="/signup",method = RequestMethod.GET)
   public String init(Model model, AccountForm form) {
     model.addAttribute("AccountForm", form);
 
@@ -53,7 +51,7 @@ public class CreateAccountController {
    * @param form
    * @return
    */
-  @PostMapping
+  @RequestMapping(value="/regist",method = RequestMethod.POST)
   public String signUp(@Validated @ModelAttribute AccountForm form, AccountEntity entity,
       BindingResult result, Model model) {
 
