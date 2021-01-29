@@ -12,7 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center col-2 offset-5 mt-5">
-        <form th:action="@{/regist}" th:method="post" th:object="${AccountForm}">
+        <form th:action="@{/signup}" th:method="post" th:object="${AccountForm}">
           <div class="title">Tsuica</div>
           <div class="errMsg" th:text="${errMsg}"></div>
           <div class="msg">tsuicaを始める</div>
@@ -27,7 +27,9 @@
             <button class="btn btn-primary w-100" type="submit">新規登録</button>
           </div>
         </form>
-        <a th:href="@{/login}">ログインはこちら</a>
+        <form th:action="@{/signup}" method="get">
+          <a href="/login">ログインはこちら</a>
+        </form>
       </div>
     </div>
   </div>
