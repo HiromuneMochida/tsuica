@@ -7,11 +7,6 @@
 <title>Tsuica home</title>
 </head>
 <body>
-  <h2>
-    <span th:text="${iMsg}"></span>
-  </h2>
-  <form method="post" th:action="@{/logout}">
-    <button class="btn btn-link btn-sm" type="submit">▶︎ログアウト</button>
-  </form>
+  <div th:replace="common/layout::header"></div>
 </body>
 </html>

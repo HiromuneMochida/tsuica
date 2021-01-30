@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .loginProcessingUrl("/login")
         .usernameParameter("username")
         .passwordParameter("password")
-        .defaultSuccessUrl("/index", true)
+        .defaultSuccessUrl("/tsuica/home", true)
         .failureUrl("/login?error")
         .permitAll()
         .and()

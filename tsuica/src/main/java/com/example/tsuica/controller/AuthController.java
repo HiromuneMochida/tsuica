@@ -37,7 +37,7 @@ public class AuthController {
   @PostMapping("/login")
   public String login() {
 
-    return "redirect:auth/index";
+    return "redirect:tsuica/home";
   }
 
   /**
@@ -56,10 +56,10 @@ public class AuthController {
    * @return index.html
    */
   //TODO 適切なフォルダに移動予定
-  @GetMapping("/index")
+  @GetMapping("/tsuica/home")
   public String index(Model model) {
     model.addAttribute("iMsg", msg.getMessage(Constant.I_001));
 
-    return "auth/index";
+    return "tsuica/home";
   }
 }
