@@ -1,5 +1,7 @@
 package com.example.tsuica.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.tsuica.entity.TimeLineEntity;
@@ -12,5 +14,5 @@ import com.example.tsuica.entity.TimeLineEntity;
 @Mapper
 public interface TimeLineMapper {
   /** タイムライン一覧取得 */
-  public TimeLineEntity selectTimeLine(TimeLineEntity entity);
+  public List<TimeLineEntity> selectTimeLine(TimeLineEntity entity);
 }

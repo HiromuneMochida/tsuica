@@ -1,5 +1,7 @@
 package com.example.tsuica.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class TimeLineService {
   @Autowired
   private TimeLineMapper mapper;
 
-  public TimeLineEntity selectTimeLine(TimeLineEntity entity) {
+  public List<TimeLineEntity> selectTimeLine(TimeLineEntity entity) {
 
     return mapper.selectTimeLine(entity);
   }

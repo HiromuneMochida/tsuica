@@ -1,5 +1,7 @@
 package com.example.tsuica.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +25,9 @@ public class TimeLineController {
   @RequestMapping(value = "/timeline/index", method = RequestMethod.GET)
   public String indexs(TimeLineEntity entity, Model model) {
 
-    entity = service.selectTimeLine(entity);
+    List<TimeLineEntity> entities = service.selectTimeLine(entity);
 
-    model.addAttribute("entity", entity);
+    model.addAttribute("entities", entities);
 
     return "timeline/index";
   }
