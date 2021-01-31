@@ -17,7 +17,7 @@ public class TimeLineEntity {
   private String content;
 
   /** 投稿者 */
-  private String user;
+  private String postUser;
 
   /** 削除フラグ */
   private String delFlg;

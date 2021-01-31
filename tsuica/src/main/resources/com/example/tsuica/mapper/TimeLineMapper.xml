@@ -13,4 +13,15 @@
     from
       time_line tl
   </select>
+  <!-- タイムライン検索結果取得 -->
+  <select id="searchTimeLine"
+    resultType="com.example.tsuica.entity.TimeLineEntity">
+    select
+      tl.content
+     ,tl.post_user
+    from
+      time_line tl
+    where
+      tl.content like CONCAT('%', #{keyword}, '%')
+  </select>
 </mapper>

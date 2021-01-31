@@ -8,7 +8,7 @@ import com.example.tsuica.entity.AccountEntity;
 public interface CreateAccountMapper {
 
   /**
-   * アカウント作成
+   * アカウント新規作成
    * @param アカウントエンティティ
    * @return AccountEntity
    */
