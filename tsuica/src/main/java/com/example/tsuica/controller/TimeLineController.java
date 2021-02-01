@@ -38,10 +38,11 @@ public class TimeLineController {
 
     return "timeline/index";
   }
-  @RequestMapping(value = "/timeline/search", method = RequestMethod.POST)
-  public String search(TimeLineEntity entity, Model model,@RequestParam String keyword) {
 
-    List<TimeLineEntity> result = service.searchTimeLine(keyword,entity);
+  @RequestMapping(value = "/timeline/search", method = RequestMethod.POST)
+  public String search(TimeLineEntity entity, Model model, @RequestParam String keyword) {
+
+    List<TimeLineEntity> result = service.searchTimeLine(keyword, entity);
 
     model.addAttribute("result", result);
 
