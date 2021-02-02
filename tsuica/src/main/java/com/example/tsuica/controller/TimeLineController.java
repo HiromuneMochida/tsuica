@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.tsuica.entity.TimeLineEntity;
+import com.example.tsuica.form.TimeLineForm;
 import com.example.tsuica.service.TimeLineService;
 
 /**
@@ -30,21 +32,18 @@ public class TimeLineController {
    * @return
    */
   @RequestMapping(value = "/timeline/index", method = RequestMethod.GET)
-  public String index(TimeLineEntity entity, Model model) {
+  public String init(Model model) {
 
-    List<TimeLineEntity> entities = service.selectTimeLine(entity);
-
-    model.addAttribute("entities", entities);
 
     return "timeline/index";
   }
 
   @RequestMapping(value = "/timeline/search", method = RequestMethod.POST)
-  public String search(TimeLineEntity entity, Model model, @RequestParam String keyword) {
+  public String search(@Validated @ModelAttribute TimeLineForm form, Model model) {
 
-    List<TimeLineEntity> result = service.searchTimeLine(keyword, entity);
+    List<TimeLineEntity> entity = service.searchTimeLine(form);
 
-    model.addAttribute("result", result);
+    model.addAttribute("entity", entity);
 
     return "timeline/index";
   }

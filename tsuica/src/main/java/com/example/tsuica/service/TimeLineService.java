@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.tsuica.entity.TimeLineEntity;
+import com.example.tsuica.form.TimeLineForm;
 import com.example.tsuica.mapper.TimeLineMapper;
 
 /**
@@ -34,15 +35,10 @@ public class TimeLineService {
   * @param entity
   * @return List<TimeLineEntity>
   */
-  public List<TimeLineEntity> searchTimeLine(String keyword, TimeLineEntity entity) {
+  public List<TimeLineEntity> searchTimeLine(TimeLineForm form) {
 
-    //    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    //
-    //    String currentUser = auth.getName();
-    //
-    //    entity.setPostuser(currentUser);
 
-    return mapper.searchTimeLine(keyword, entity);
+    return mapper.searchTimeLine(form);
   }
 
 }

@@ -1,5 +1,7 @@
 package com.example.tsuica.entity;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -8,7 +10,7 @@ import lombok.Data;
  * @version 2021/01/30
  */
 @Data
-public class TimeLineEntity {
+public class TimeLineEntity implements Serializable  {
 
   /** 投稿ID */
   private Integer postId;

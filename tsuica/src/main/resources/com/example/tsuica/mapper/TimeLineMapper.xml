@@ -22,6 +22,6 @@
     from
       time_line tl
     where
-      tl.content like CONCAT('%', #{keyword}, '%')
+      tl.content like CONCAT('%', #{content}, '%')
   </select>
 </mapper>

@@ -13,23 +13,15 @@
   <div class="container">
     <div class="row">
       <div class="text-center col-6 offset-3 mt-5">
-        <form th:action="@{/timeline/search}" th:method="post">
+        <form th:action="@{/timeline/search}" th:object="${form}" th:method="post">
           <div class="input-group">
-            <input type="text" class="form-control" name="keyword" placeholder="Search for...">
+            <input type="text" class="form-control" name="content" placeholder="Search for...">
             <button class="fas fa-search btn btn-primary" type="submit"></button>
           </div>
         </form>
       </div>
       <div class="text-center col-6 offset-3 mt-5">
-        <div class="card" th:each="item:${entities}" th:object="${TimeLineEntity}">
-          <div class="card-body">
-            <h5 class="card-title" th:text="${item.content}"></h5>
-            <span th:text="${item.postUser}"></span>
-          </div>
-        </div>
-      </div>
-      <div class="text-center col-6 offset-3 ">
-        <div class="card" th:each="item:${result}" th:object="${TimeLineEntity}">
+        <div class="card" th:each="item:${entity}" th:object="${TimeLineEntity}">
           <div class="card-body">
             <h5 class="card-title" th:text="${item.content}"></h5>
             <span th:text="${item.postUser}"></span>
