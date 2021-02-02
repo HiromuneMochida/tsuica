@@ -32,8 +32,11 @@ public class TimeLineController {
    * @return
    */
   @RequestMapping(value = "/timeline/index", method = RequestMethod.GET)
-  public String init(Model model) {
+  public String init(TimeLineEntity entity, Model model) {
 
+    List<TimeLineEntity> selectEntity = service.selectTimeLine(entity);
+
+    model.addAttribute("selectEntity", selectEntity);
 
     return "timeline/index";
   }
@@ -41,9 +44,9 @@ public class TimeLineController {
   @RequestMapping(value = "/timeline/search", method = RequestMethod.POST)
   public String search(@Validated @ModelAttribute TimeLineForm form, Model model) {
 
-    List<TimeLineEntity> entity = service.searchTimeLine(form);
+    List<TimeLineEntity> searchEntity = service.searchTimeLine(form);
 
-    model.addAttribute("entity", entity);
+    model.addAttribute("searchEntity", searchEntity);
 
     return "timeline/index";
   }
