@@ -12,7 +12,10 @@ import lombok.Data;
 @Data
 public class TimeLineForm implements Serializable {
 
-  /** キーワード検索用 */
+  /** キーワード 検索用 */
   private String content;
+
+  /** ユーザー名 検索用 */
+  private String userName;
 
 }

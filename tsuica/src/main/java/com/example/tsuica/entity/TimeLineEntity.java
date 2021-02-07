@@ -1,6 +1,7 @@
 package com.example.tsuica.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -10,7 +11,7 @@ import lombok.Data;
  * @version 2021/01/30
  */
 @Data
-public class TimeLineEntity implements Serializable  {
+public class TimeLineEntity implements Serializable {
 
   /** 投稿ID */
   private Integer postId;
@@ -24,6 +25,7 @@ public class TimeLineEntity implements Serializable  {
   /** 削除フラグ */
   private String delFlg;
 
-
+  /** 作成日時 */
+  private Date createdAt;
 
 }

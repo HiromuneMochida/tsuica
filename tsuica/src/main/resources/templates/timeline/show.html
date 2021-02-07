@@ -5,7 +5,7 @@
   crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/signup.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<title>Tsuica Time Line</title>
+<title>Tsuica あなたのタイムライン</title>
 <meta charset="UTF-8">
 </head>
 <body class="bg-light">
@@ -13,24 +13,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center col-6 offset-3 mt-5">
-        <form th:action="@{/timeline/search}" th:object="${form}" th:method="post">
-          <div class="input-group">
-            <input type="text" class="form-control" name="content" placeholder="Search for...">
-            <button class="fas fa-search btn btn-primary" type="submit"></button>
-          </div>
-        </form>
-      </div>
-      <div class="text-center col-6 offset-3">
-        <div class="card" th:each="item:${selectEntity}" th:object="${TimeLineEntity}">
-          <div class="card-body">
-             <h5 class="card-title" th:text="${item.content}"></h5>
-            <span class="far fa-user" th:text="${item.postUser}"></span>
-            <span class="far fa-clock" th:text="${item.createdAt}"></span>
-          </div>
-        </div>
-      </div>
-      <div class="text-center col-6 offset-3">
-        <div class="card" th:each="item:${searchEntity}" th:object="${TimeLineEntity}">
+        <div class="card" th:each="item:${userEntity}" th:object="${userEntity}">
           <div class="card-body">
             <h5 class="card-title" th:text="${item.content}"></h5>
             <span class="far fa-user" th:text="${item.postUser}"></span>

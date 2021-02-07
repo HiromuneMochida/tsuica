@@ -10,6 +10,7 @@
     select
       tl.content
      ,tl.post_user
+     ,tl.created_at
     from
       time_line tl
   </select>
@@ -19,9 +20,22 @@
     select
       tl.content
      ,tl.post_user
+     ,tl.created_at
     from
       time_line tl
     where
       tl.content like CONCAT('%', #{content}, '%')
+  </select>
+  <!-- ログインユーザータイムライン取得 -->
+  <select id="findByLoginUser"
+    resultType="com.example.tsuica.entity.TimeLineEntity">
+    select
+      tl.content
+     ,tl.post_user
+     ,tl.created_at
+    from
+      time_line tl
+    where
+      tl.post_user = #{postUser}
   </select>
 </mapper>

@@ -19,4 +19,7 @@ public interface TimeLineMapper {
 
   /** タイムライン検索 */
   public List<TimeLineEntity> searchTimeLine(TimeLineForm form);
+
+  /** タイムラインログインユーザー検索 */
+  public List<TimeLineEntity> findByLoginUser(String postUser);
 }

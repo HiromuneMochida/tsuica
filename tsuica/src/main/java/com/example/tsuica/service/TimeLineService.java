@@ -37,8 +37,16 @@ public class TimeLineService {
   */
   public List<TimeLineEntity> searchTimeLine(TimeLineForm form) {
 
-
     return mapper.searchTimeLine(form);
+  }
+
+  /**
+   * ログインユーザーのタイムライン取得
+   * @return ログインユーザー名
+   */
+  public List<TimeLineEntity> findByLoginUser(String postUser) {
+
+    return mapper.findByLoginUser(postUser);
   }
 
 }
